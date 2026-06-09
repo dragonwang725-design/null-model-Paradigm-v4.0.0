@@ -10,85 +10,8 @@
 
 ## 修正后的完整架构图
 
-```mermaid
-graph TB
-    subgraph 云端
-        LLM[Full Model<br/>大模型 API / 本地大模型]
-    end
+<img width="1747" height="865" alt="arch" src="https://github.com/user-attachments/assets/b9efd8a8-873e-4024-a4d7-f25b184180c0" />
 
-    subgraph 本地
-        subgraph 人类层
-            H[用户输入<br/>自然语言目的]
-        end
-
-        subgraph 隐私资料库
-            PV[知识 + 规则 + 日志 + 元事实<br/>人类视角的元规则层]
-        end
-
-        subgraph 全量感知层
-            P1[系统探针]
-            P2[视频探针]
-            P3[音频探针]
-            P4[雷达探针]
-        end
-
-        subgraph NULL_MODEL[NULL MODEL 空模型]
-            direction TB
-
-            subgraph 策略计算层
-                PP[目的解析器<br/>Purpose Parser]
-                PB[物理预算模块<br/>Physical Budget]
-                PS[感知调度器<br/>Perception Scheduler]
-                CL[约束锁定<br/>Constraint Locking]
-            end
-
-            subgraph 执行层
-                FE[事实提取器<br/>Fact Extractor]
-                CS[因果骨架<br/>Causal Skeleton]
-                RE[相关性引擎<br/>Relevance Engine]
-                DS[脱敏处理<br/>Desensitizer]
-                AE[原子执行器<br/>Atomic Executor]
-            end
-
-            subgraph 判断层
-                FJ[最终判断<br/>Final Judgment]
-            end
-        end
-    end
-
-    H --> PP
-    PP -->|查询| PV
-    PV -->|元规则| PS
-    PP -->|目的结构| PB
-    PB -->|预算计算| PS
-    PS -->|调度指令| CL
-    CL -->|约束锁定| P1
-    CL -->|约束锁定| P2
-    CL -->|约束锁定| P3
-    CL -->|约束锁定| P4
-    P1 -->|只提取允许的事实| FE
-    P2 -->|只提取允许的事实| FE
-    P3 -->|只提取允许的事实| FE
-    P4 -->|只提取允许的事实| FE
-    FE -->|事实原子| CS
-    CS -->|相关事实| RE
-    RE -->|排序事实| DS
-    DS -->|脱敏目的+事实| LLM
-    LLM -->|策略方案| FJ
-    FJ -->|校验| PV
-    FJ -->|符合| AE
-    FJ -->|不符合| H
-    AE -->|原子执行| EX[输出/执行]
-    AE -->|失败回滚| RB[回滚]
-    EX -->|日志| PV
-    RB -->|日志| PV
-
-    style NULL_MODEL fill:#f9f,stroke:#333,stroke-width:4px
-    style LLM fill:#bbf,stroke:#333,stroke-width:2px
-    style PV fill:#ff9,stroke:#333,stroke-width:2px
-    style PB fill:#afa,stroke:#333,stroke-width:2px
-    style AE fill:#afa,stroke:#333,stroke-width:2px
-```
 
 ## 关键修正点
 
