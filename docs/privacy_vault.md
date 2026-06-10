@@ -1,6 +1,6 @@
 
 # 元事实库（Meta-Fact Vault）设计
- """# 修改文档 4：privacy_vault.md → 重命名为 meta_fact_vault.md
+
 
 > **别名：知识库1（Knowledge Base 1）、隐私资料库（Privacy Vault）**
 > 
@@ -320,4 +320,4 @@ feedback = vault.get_historical_feedback(purpose="anomaly_detection", zone="Zone
 - 元事实库规则（新增）：允许提取信用分/负债比/交易记录，禁止提取用户密码/银行卡号
 
 **结论**：跨领域扩展不需要修改因果骨架代码，只需要在元事实库中新增**领域本体映射表**和**规则集**。
-"""
+
