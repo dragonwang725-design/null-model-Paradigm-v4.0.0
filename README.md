@@ -82,3 +82,17 @@ LLM integration is simulated to demonstrate the separation logic.
 ## Citation
 
 **DOI:** [10.5281/zenodo.20463703](https://doi.org/10.5281/zenodo.20463703)
+
+---
+
+## Quick Start: See it in action
+
+Run the GPU crash diagnosis demo.  
+This demonstrates why **facts beat knowledge**.
+**What you will see:**  
+The LLM starts with wild guesses (Knowledge).  
+The Null Model injects real system facts (Probes).  
+The LLM returns a precise diagnosis (Judgment).
+
+**The difference:**  
+One is a consultant. The other is an engineer.
