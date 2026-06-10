@@ -1,5 +1,5 @@
 
-#  README.md
+#  Null Model Paradigm (NMP)
 
 > **The LLM is not the agent. The shell is.**
 
@@ -156,4 +156,4 @@ The LLM returns a precise diagnosis (Judgment).
 One is a consultant. The other is an engineer.
 
 **For a real-world comparison, see the "Game Crash" example in Section III above** (diagram `2026.jpg`), which shows the complete L1→L2→Probe→L2→L3→L2 closed loop in action.
-"""
+
