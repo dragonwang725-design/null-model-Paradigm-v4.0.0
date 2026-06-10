@@ -3,7 +3,7 @@
 
 > 来源：*The Null Model Paradigm: Constraint-First Architecture for Reliable LLM Agents*  
 > 作者：loweswang  
-> 发布：Zenodo正式版（DOI），2026年5月30日
+> 发布：Zenodo正式版（DOI：10.5281/zenodo.20463703），2026年5月30日
 
 ---
 
@@ -242,11 +242,8 @@ Harder Constraints → Reliable Judgment → Safe Execution
 
 > "The DuMate failure is not an anecdote; it is a paradigm indicator. LLM agents will continue to collapse in physical environments until the industry recognizes that generation without constraint is hallucination, and execution without judgment is destruction."
 
-> "The Null Model Paradigm does not reject LLMs; it constrains them within fact-boundaries. The Null Model does not merely constrain the LLM; it out-computes it on the only axis that matters for physical reliability: the ability to plan, evaluate, and execute under hard constraints without hallucinating authority."
+> "The Null Model Paradigm does not reject LLMs; it provides them with a structured examination hall. The LLM is not caged; it is given a clear proposition and verified facts, within which it can reason freely. The Null Model is not merely a cage; it is the examiner that sets the proposition, verifies the reasoning, and enforces the final verdict."
 
 > "Intelligence is not the accumulation of knowledge; it is the discipline to know when not to act—and the hard shell that enforces that discipline."
-"""
 
-with open('/mnt/agents/output/principles.md', 'w', encoding='utf-8') as f:
-    f.write(new_principles)
 
