@@ -1,5 +1,5 @@
 
-# 修改后的 README.md
+#  README.md
 
 > **The LLM is not the agent. The shell is.**
 
@@ -46,8 +46,6 @@ The Null Model executes based on terrain, selecting maps as needed.
 ## III. Old Paradigm vs. New Paradigm: The "Game Crash" Example
 
 The following diagram contrasts the **Full-Model Paradigm** (pure LLM) with the **Null Model Paradigm** (TDA three-layer architecture) using a real-world diagnostic scenario.
-
-<img width="692" height="704" alt="2026" src="https://github.com/user-attachments/assets/b66f5c93-482d-4f67-a7f2-762da0cea5cc" />
 
 **Left: Old Paradigm (Pure LLM)**
 - User says: "Game keeps crashing"
