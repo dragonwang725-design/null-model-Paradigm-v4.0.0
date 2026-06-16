@@ -134,12 +134,13 @@ null model paradigm: a general-purpose shell with constraint priority for local 
 
 ## 引用
 
-<img width="191" height="20" alt="image" src="https://github.com/user-attachments/assets/6201758a-a40d-4c0b-a345-285fda7fe6cd" />
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20463703.svg)](https://doi.org/10.5281/zenodo.20463703)
 
-<img width="191" height="20" alt="image" src="https://github.com/user-attachments/assets/f313de27-8998-4e83-83a7-8d7bbffd34ea" />
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20636262.svg)](https://doi.org/10.5281/zenodo.20636262)
 
-<img width="191" height="20" alt="607560100-d0c272e6-75c2-4fb9-aeb0-3013dc0f8b87" src="https://github.com/user-attachments/assets/cb6b9fb1-dfeb-4ed7-87fc-0579dbbf804b" />
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20643414.svg)](https://doi.org/10.5281/zenodo.20643414)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20715011.svg)](https://doi.org/10.5281/zenodo.20715011)
 
 ---
 
