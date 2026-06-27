@@ -158,7 +158,7 @@ TDA（三层双视角辩证架构）是 NMP 的**架构展开**。
 
   └── Definition 5: TDA（三层双视角辩证架构）
        |             └── 让 LLM 与空模型的张力显性化、可管理、可追溯
-       └──Definition 4:Null Model Paradigm（NMP）：可通过TDA实现可靠AI 可执行的核心范式
+       └──Definition 4:Null Model Paradigm（NMP）：通过TDA实现可靠AI 可执行的核心范式
              ├── Definition 1: Null Model（空模型）
              │              └── 先验计算结构，目的→事实类型映射
              ├── Definition 2: Meta Fact Base（元事实库）
