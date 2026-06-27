@@ -1,4 +1,4 @@
-#  A counterintuitive AGI architecture solution
+#  A counterintuitive AI architecture solution
  ——Abandoning model-centricity: Constraint-first architecture (NMP) for truly reliable LLM agents
 
 > **Null Model Paradigm
