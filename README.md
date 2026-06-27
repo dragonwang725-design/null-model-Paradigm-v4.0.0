@@ -8,12 +8,10 @@ Design based on a three-layer dual-viewpoint dialectical (TDA) architecture
 
 ---
 
-## 为什么？
 
-**Null Model Paradigm是可靠 AI 系统的可执行核心。** 
+## 为什么Null Model Paradigm是可靠 AI 系统的可执行核心？
 
 
-#
 
 ### 1. 为什么叫可执行？（Definition 1: Null Model）
 
@@ -151,17 +149,31 @@ TDA（三层双视角辩证架构）是 NMP 的**架构展开**。
 ```
 
   └── Definition 5: TDA（三层双视角辩证架构）
-      ├             └── 让 LLM 与空模型的张力显性化、可管理、可追溯
-      ├──Null Model Paradigm（NMP）：可靠 AI 可执行的核心范式
-      ├── Definition 1: Null Model（空模型）
-      │     └── 先验计算结构，目的→事实类型映射
-      ├── Definition 2: Meta Fact Base（元事实库）
-      │     └── 使用者确认的、有时间刻度的静态事实集合
-      ├── Definition 3: Case Base（判例库）
-      │     └── 错误碰壁记录，否定性知识，驱动自学习
-      ├── Definition 4: Null Model Paradigm（空模型范式）
-            └── NMP = Null Model + Meta Fact + Case Base 
+       |             └── 让 LLM 与空模型的张力显性化、可管理、可追溯
+       └──Definition 4:Null Model Paradigm（NMP）：可靠 AI 可执行的核心范式
+             ├── Definition 1: Null Model（空模型）
+             │              └── 先验计算结构，目的→事实类型映射
+             ├── Definition 2: Meta Fact Base（元事实库）
+             │              └── 使用者确认的、有时间刻度的静态事实集合
+             └── Definition 3: Case Base（判例库）
+                            └── 错误碰壁记录，否定性知识，驱动自学习
+     
 ```
+#
+
+## 核心公理：通用人工智能不需要意识
+
+**自主意识 = 目的 + 判断**
+
+| 成分| 所有者 | 约束 |
+| :--- | :--- | :--- |
+| **目的** | **人类** | 不可更改。不可计算。 |
+| **判断** | **机器** | 可计算的。不可逆的。|
+
+**判断基于事实，而非知识。**  
+知识如同地图，事实如同地形。
+空模型根据地形执行，并根据需要选择地图。
+
 #
 
 | 组件 | 文档 |
