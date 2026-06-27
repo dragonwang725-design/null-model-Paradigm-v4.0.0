@@ -7,7 +7,9 @@ Null Model Paradigm（NMP）：Reliable AI Executable Core Paradigm
 Design based on a three-layer dual-viewpoint dialectical (TDA) architecture
 
 ---
+📌版本:  v4.0.0
 
+#
 
 ## 为什么 Null Model Paradigm是可靠 AI 系统的可执行核心？
 
