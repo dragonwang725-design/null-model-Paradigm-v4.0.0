@@ -10,6 +10,7 @@ Design based on a three-layer dual-viewpoint dialectical (TDA) architecture
 📌版本:  v4.0.0
 
 #
+空模型范式（Null Model Paradigm, NMP）是一种面向可靠 AI 系统的可执行核心。它本身不推理、不生成、不判断，而是通过空模型程序、元事实库和判例库，为 LLM 提供确定性的事实基础。
 
 ## 为什么 Null Model Paradigm是可靠 AI 系统的可执行核心？
 
