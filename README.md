@@ -1,175 +1,181 @@
-# llm-hallucination-constraint-shell
-The real fix: not changing the test rules, but putting a hallucination-constraint shell  on your model.
+# Null Model Paradigm（NMP）：可靠 AI 可执行的核心范式
 
-A small plugin that effectively mitigates and eliminates the hallucinations and illusions of logical overthinking in large language models (LLM).
-
-# 一个有效约束、压制 AI大模型（LLM ）幻觉、逻辑脑补发散的小插件
- ——  真正解决大模型幻觉与逻辑脑补：不是改考试规则，是给模型戴上**幻觉紧箍咒**  
-
-全世界都知道，大模型存在幻觉、逻辑脑补和发散的问题。  
-但全世界也都没有找到这个根本性问题的真正根源。
-
-OpenAI最新发表并被称为"开创性论文"的《Why Language Models Hallucinate》https://arxiv.org/abs/2509.04664
-
-洋洋洒洒貌似精辟地分析了各种原因，并号称给出了解决方向，但这些分析，本质上仍然停留在"知其然"的层面，而没有真正回答"为什么会这样"的根本问题，也因此根本没有给出真正解决问题的具体办法——换个说法，给出的办法根本没有解决问题。
-
-其实，这个根本原因，一句话就能说清楚：  
-> **大模型是抛开事实讲逻辑、讲道理。**
-
-抛开事实讲逻辑、讲道理，能不胡说八道吗？能不产生幻觉吗？能不进行逻辑脑补吗？判断，以事实为依据，这不是常识吗？
-
-原因如此简单。
-
-解决办法一样很简单：**那就给大模型事实**。
-
-## 什么是 llm-hallucination-constraint-shell（幻觉紧箍咒）？
-
-constraint shell 不是另一个大模型，不是替代品，不是补丁。
-
-它是一个**外壳**（Shell）——专门用来提取事实的，套在LLM外面的一层约束系统：
-
-LLM 仍然是那个神通广大的孙悟空。  
-constraint shell 是唐僧的紧箍咒——**念的是"幻觉"，疼的是"胡说"，护的是"真经"。**
-
-什么是事实？事实就是：你是男的就是男的，你是女的就是女的，是一个相对确定的、静态的客观存在，比如：个人身份信息：性别，出生年月，籍贯；完整的个人病历，企业的设备名称、规格，企业的操作规则，这是确定的事实。这些事实又是随时间可变的，必须随变化可随时更改。比如：病历新增的内容；企业更换设备；因业务变化修改规则。
-
-因此我们首先要建立一个个人的、私域的、可隐私的文件夹，这是存放确定的、静态的事实库，又是可以随时因改变而修改的。
-
-<img src="flow-chart/s001.png" alt="图片替代文字" width="90%">
-
-##
-
-以下方案，只提供思路，而非完善的可操作代码（虽然确实可以跑，也可以实际小场景应用）：
-
-**方案一**
-
- [查看代码：](examples/crash_probe.py)
- 
- 1.安装的 Python 库
- ```
- cmd
- pip install psutil
-
- pip install GPUtil
- ```
- 2.打开命令提示符（CMD）或 PowerShell。切换到脚本所在的目录（例如放在 F:\ 盘）：
- ```
- cmd
- cd /d F:\
- ```
- 3.运行脚本：
- ```
- cmd
- py -3.11 crash_probe.py
- ```
- 4.根据提示输入软件名称（如 chrome.exe），回车即可。
-
- **旧范式 (全模型 LLM)**
-- 用户说：“游戏一直崩溃”
-- LLM列出了5个猜测（驱动程序、DX、过热、显存、系统文件）
-- 用户反复尝试；始终找不到根本原因。
-- **红色标签：诊断失败，零事实收集**
-
-**新范式（NMP 三层架构）**
-
-| 层  | 行动 | 输出 |
-| :--- | :--- | :--- |
-| **L1 人类** | 输入问题|“游戏一直崩溃” |
-| **L2 空模型NMP** | 意图识别 | 启动 Probe-GPU + Probe-EventLog |
-| **探针 A** | `nvidia-smi` | 显存容量 9785/10240 MiB（溢出 95.5%），温度 86°C，功耗超过 TDP |
-| **探针 B** | 事件查看器 | `nvlddmkm` 驱动程序 TDR 超时，GPU 功耗限制超出|
-| **L2 空模型NMP** | 事实打包 | 结构化摘要纯文本 |
-| **L3 大模型LLM** | 基于事实的分析 | 根本原因 = 显存溢出 + 驱动程序 TDR 错误，建议升级到 552.44 版本。 |
-| **L2 空模型NMP** | 验证 + 执行 | WHQL 检查 → 应用修复 → 验证稳定性 |
-
-**架构数据流:** L1 → L2 → 探针 → L2 → L3 → L2 (完整闭环)
-
-当你要排查某个软件安装疑难问题或软件崩溃时，运行这个探针，你就能获得该软件的运行状况和所在电脑的硬件环境，从而使LLM更准确地判断问题根源以及给出有针对性的建议，而不是泛泛而谈各种可能原因。
-
-#
-**方案二** 
-
-[查看代码：](examples/nmp.py)
- 
- 1.安装依赖
- ```
- cmd
- pip install gradio sentence-transformers numpy requests
- ```
- 2.保持 Ollama 后台运行，并拉取对应模型。再启动 python 脚本，即可真实生成内容。
-
- 3.实验报告：
-
- - [元宝实验](examples/yuanbao.md)
- 
- - [豆包实验](examples/doubao.md)
- 
- - [实验报告](examples/Experiment_Report.md)
-
- #
-**方案三** 
-
-合并方案一方案二，合成为**方案三**，这对代码写手不是难事，最好整成一键安装包可通用使用，欢迎提供各种版本。
-
- #
-
-> ###  幻觉紧箍咒  —— 
-##  llm-hallucination-constraint-shell 不是终极版，它是空模型范式TDA架构的最小Demo
-
-llm-hallucination-constraint-shell不是异想天开凭空想象而来的，它是从哲学原理 → 理论模型 → 架构设计 → 工程实现方案 → 案例验证代码（demo）逻辑演绎而来的 —— 人工智能范式解决方案 **空模型范式TDA架构**
-
-- 哲学原理：
-
-> 来自2025年撰写的 [“受动–能动”辩证结构与认识论的操作化路径 ](docs/Philosophy_Inspiration.md) —— [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20793333.svg)](https://doi.org/10.5281/zenodo.20793333)
-
-- 理论模型：
-> 
-> 1. [大语言模型的结构性局限与人工智能的结构转向](docs/TDA-Theory.md) —— [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20793637.svg)](https://doi.org/10.5281/zenodo.20793637)
->
-> 2. [TDA 三层双视角架构论文原理精要](docs/principles.md) 
->
-> 3. [TDA 架构文档（修正版）](docs/architecture.md)
->
-> 4. [A counterintuitive AGI architecture solution](v3-Overviewl.md)
-> 
-> 5. [The Null Model Paradigm: Constraint-First Architecture for Reliable LLM Agent](https://doi.org/10.5281/zenodo.20463703)) —— [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20463703.svg)](https://doi.org/10.5281/zenodo.20463703)
-
-- 架构设计：
->  [三层双视角（TDA）辩证架构流程图](docs/flow_chart.md)
->
-> **空模型**：拆解指令、检索元事实、构建约束框架
-> 
-> **元事实库**：确定的、时态化的存在状态（不是静态知识）
-> 
-> **判例库**：历史负例积累，形成判例法体系
-> 
-> **结构化辩论层**：LLM的"辩方"主张 vs 空模型的"控方"质证
-> 
-> **裁决AI**：基于动态阈值和历史先验的司法式裁决
-> 
-> **熔断器**：人工审计的最高否决权
->
-
-- 工程实现方案：
-> [空模型（NMP）设计](https://github.com/dragonwang725-design/null-model-paradigm-a-general-purpose-shell-with-constraint-priority-for-local-deployment) —— [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20715011.svg)](https://doi.org/10.5281/zenodo.20715011)
->
-> [元事实库（Meta-Fact Vault）设计](docs/meta_fact_vault.md)
->
-> [判例库的双相理论 （dual-phase theory）](docs/dual-phase-theory.md)
->
-> [云端-本地交互协议](docs/cloud_local_protocol.md)
->
-> [NMP 逻辑一致性验证报告](docs/LOGIC_VERIFICATION_REPORT.md)
->
-<img src="flow-chart/nmp.png" alt="图片替代文字" width="80%">
-
-- 未来发展：
->  **可将空模型同一事实，输入两个不同类型的大模型LLM**，使之成为真正的三层双视角辩证对抗型动态阈值司法式裁决的人工智能安全架构
->  [空模型范式三层双视角（TDA）辩证架构](docs/flow_chart.md)
-#
-## 引用本项目
- [引用](CITATION.cff)
- 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20715010.svg)](https://doi.org/10.5281/zenodo.20715010)
+> **基于三层双视角辩证（TDA）架构设计**
 
 ---
+
+## 一句话
+
+**Null Model Paradigm 是可靠 AI 系统的可执行核心。**
+
+---
+
+## 为什么？
+
+### 1. 为什么叫可执行？（Definition 1: Null Model）
+
+空模型不是空无一物。
+
+它是一个**判断容器**，剥离了后验领域知识、目的和价值偏见，同时保留了先验计算能力。
+
+| 方面 | 空模型"有" | 空模型"没有" |
+|------|-----------|-------------|
+| **先验容量** | 纯计算：逻辑运算、搜索、约束满足、路径选择、校验和验证 | — |
+| **后验知识** | — | 领域语料库、文化经验、价值偏好、自主目标 |
+| **记忆** | — | 会话间状态不持久 |
+| **欲望** | — | 没有内部驱动力去优化除当前任务之外的任何其他方面 |
+| **目的** | — | 等待人类输入；不产生自身目标 |
+
+**类比**：空模型就像**中央处理器（CPU）**。它拥有指令集（计算能力），但内存中的数据（领域知识）并非 CPU 的"组成部分"。CPU 从内存读取数据并进行操作，但作为底层架构，它本身并不**包含任何知识**。
+
+**关键澄清**：空模型不会做出任何判断；它只会**计算是否匹配**。就像防火墙不会"理解"黑客，它只会匹配规则。
+
+**空模型是"可执行"的**：它有通用的计算骨架（BFS、约束满足、路径选择），可以运行在任何领域，不需要重新训练。
+
+---
+
+### 2. 为什么是核心？（Definition 4: Null Model Paradigm）
+
+**没有 Null Model，TDA 就只是 Architecture Proposal。**
+
+Null Model Paradigm 不是哲学概念，是**TDA 架构的可执行计算核心**。
+
+```
+Null Model Paradigm（NMP）
+  ├── Null Model（空模型）—— 先验计算，提取事实
+  ├── Meta Fact（元事实）—— 使用者确认的事实
+  └── Case Base（判例库）—— 错误记录，越用越老练
+```
+
+**为什么是核心？**
+
+- LLM 是棋手，会下棋但不懂现实
+- NMP 是棋谱记录员，只让 LLM 按事实说话
+- 没有 NMP，LLM 自由发挥， hallucination 不可避免
+- 有了 NMP，LLM 被约束在事实边界内，**零偏差、零幻觉**
+
+---
+
+### 3. 为什么需要元事实库？（Definition 2: Meta Fact Base）
+
+> **对 AI 使用者来说，没有公共通用的事实，只有个体私域的事实。**
+
+元事实库是**使用者（个人/企业/组织）或其授权代表确认的、有时间刻度的静态事实集合**。
+
+**为什么需要它？**
+
+- LLM 的训练知识是概率性的、截止到训练 cutoff 的
+- LLM 不知道"你的"病历、"你的"设备参数、"你的"企业规则
+- 元事实库提供**LLM 够不着的事实**：个人属性、实时数据、私有系统数据
+- 这些事实是**使用者确认的**，LLM 必须服从，不是"参考"
+
+**关键**：元事实库不是"知识库"，是**使用者的事实主权寄存器**。
+
+---
+
+### 4. 为什么需要判例库？（Definition 3: Case Base）
+
+> **人类总试图保持正确，但不知道正确从哪里来？是从错误中来的。**
+
+判例库是**错误碰壁记录**，否定性知识。
+
+**为什么需要它？**
+
+- 传统 AI：人教 AI"什么对" → 人自己不确定 → 循环恶化
+- NMP：让 AI 自由犯错 → 空模型拦截并记录 → 判例库积累 → 同类错误预判拦截
+- 判例库不是"正确答案集"，是"**错误病理档案**"
+- 系统不是在学"对"，是在长"错"的抗体
+
+**判例库驱动自学习**：
+- 越用越老练，不是越用越旧
+- 参数会过时，教训只会越积越锋利
+- 这是 NMP 的**护城河**：换个大模型容易，换三年判例库难
+
+---
+
+### 5. 为什么需要 TDA？（Definition 5: TDA）
+
+TDA（三层双视角辩证架构）是 NMP 的**架构展开**。
+
+**为什么需要三层？**
+
+| 层 | 名称 | 角色 | 权限 |
+|----|------|------|------|
+| **L1** | **意图输入** | 人类主权 | 设定目标、价值观和成功标准。**不可委托。** |
+| **L2** | **空模型（NMP）** | **代理** | **仅具有物理执行权限的层。**控制资源预算、数学规划、约束和回滚。从元事实库读取提取规则。 |
+| **L3** | **全模型（LLM）** | 认知生成器 | **零文件系统写入。零执行。零计划修改。**仅限于在 L2 设置的事实边界内生成文本和标注。 |
+
+**为什么需要双视角？**
+
+- **LLM 视角**：基于训练知识的概率生成（"我认为..."）
+- **空模型视角**：基于使用者事实的确定性约束（"您的事实是..."）
+- **冲突图**：两个视角的张力显性化，暴露矛盾
+- **裁决 AI**：在张力中做"有依据随机"的选择
+- **熔断器**：人工审计的最高否决权
+
+**TDA 让矛盾 productive**：不是消除矛盾，是让矛盾可见、可管理、可追溯。
+
+---
+
+### 6. 为什么能落地？
+
+**六步流程**：
+
+1. **问题接收**（L1 → L2）：注入人为意图
+2. **策略计算**（L2）：查询元事实库 → 物理预算 → 任务分解 → 约束锁定
+3. **认知处理**（L3）：LLM 对 L2 过滤的事实进行语义理解
+4. **知识检索**（L3 ↔ DB）：获取特定领域数据（在 L2 约束范围内）
+5. **蓝图合成**（L3）：LLM 在约束下组装纯文本执行蓝图
+6. **判断与执行**（L2）：评估蓝图有效性 → 选择最佳路径 → 强制执行原子性并回滚
+
+**协议保障**：
+- [📓 云端-本地交互协议](docs/cloud_local_protocol.md) nmp-2.0：事实主权、代表原则、静态快照、闭环反馈、无资格原则
+
+**验证通过**：
+- [📋 逻辑一致性验证报告](docs/LOGIC_VERIFICATION_REPORT_V2.md)：98% 一致性，架构级偏差全部修正
+
+---
+
+## 核心公式 = 目录
+
+```
+Null Model Paradigm（NMP）：可靠 AI 可执行的核心范式
+  ├── Definition 1: Null Model（空模型）
+  │     └── 先验计算结构，目的→事实类型映射
+  ├── Definition 2: Meta Fact Base（元事实库）
+  │     └── 使用者确认的、有时间刻度的静态事实集合
+  ├── Definition 3: Case Base（判例库）
+  │     └── 错误碰壁记录，否定性知识，驱动自学习
+  ├── Definition 4: Null Model Paradigm（空模型范式）
+  │     └── NMP = Null Model + Meta Fact + Case Base
+  └── Definition 5: TDA（三层双视角辩证架构）
+        └── 让 LLM 与空模型的张力显性化、可管理、可追溯
+```
+
+| 组件 | 文档 |
+|------|------|
+| **Null Model** | 在本文"为什么叫可执行"节已阐述 |
+| **Meta Fact Base** | [📙 元事实库设计](docs/meta_fact_vault.md) |
+| **Case Base** | [📕 双相理论（判例库）](docs/dual-phase-theory.md) |
+| **TDA 架构** | [📐 架构文档](docs/architecture.md) |
+| **交互协议** | [📓 云端-本地协议](docs/cloud_local_protocol.md) |
+| **逻辑验证** | [📋 验证报告](docs/LOGIC_VERIFICATION_REPORT_V2.md) |
+
+---
+
+## 快速开始
+
+```bash
+# 最小 Demo
+git clone https://github.com/dragonwang725-design/llm-hallucination-constraint-shell.git
+cd demo
+python run.py --purpose "检查系统状态"
+```
+
+---
+
+## 引用
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20715010.svg)](https://doi.org/10.5281/zenodo.20715010)
+
+> **没有 Null Model，TDA 就只是 Architecture Proposal。**
