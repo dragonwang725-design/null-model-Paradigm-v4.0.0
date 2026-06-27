@@ -1,11 +1,9 @@
 
-# NMP 论文原理精要
+# TDA 三层双视角架构论文原理精要
 
 > 来源：*The Null Model Paradigm: Constraint-First Architecture for Reliable LLM Agents*  
-> 作者：loweswang  
-> 发布：Zenodo正式版（DOI：10.5281/zenodo.20463703），2026年5月30日
-
----
+> 作者：loweswang  中文名： 王龙 
+> 发布：Zenodo正式版（DOI：10.5281/zenodo.20463703，DOI：10.5281/zenodo.20636262)
 
 ## 一、问题诊断：DuMate崩溃的范式意义
 
@@ -16,11 +14,11 @@
 - 结果：连续三次失败，报错Internal Server Error: Bad Gateway
 
 ### 核心论点
-**这不是实现缺陷，而是范式缺陷。**
+**这不是工程缺陷，而是范式缺陷。**
 
 当前Agent采用**Full-Model Paradigm（全模型范式）**：让单一LLM同时承担理解意图、规划操作、执行物理动作。LLM满载互联网语料、文化知识、统计模式，却缺乏物理世界所需的骨架结构。
 
----
+#
 
 ## 二、AlphaGo直觉：结构先例
 
@@ -37,7 +35,7 @@ NMP将这一分离推广到物理世界Agent：
 - **LLM是开局库（Opening Book）**——提供候选策略
 - **Null Model是棋手（Player）**——计算、评估、选择、执行
 
----
+#
 
 ## 三、形式定义
 
@@ -64,7 +62,13 @@ NMP将这一分离推广到物理世界Agent：
 知识层被领域语料、文化经验、价值偏好、自主目标生成机制**最大化饱和**的AI系统。当代LLM（GPT-4、Qwen、Claude）及其衍生Agent是典型全模型。
 
 ### 3.3 Null Model（空模型）
-**知识自由的计算判断基底（Knowledge-free computational judgment substrate）**。
+
+> Null Model Paradigm 既是范式，也是核心组件，它是TDA 架构的灵魂。
+>
+> 它是知识自由的计算判断基底（Knowledge-free computational judgment substrate）。
+>
+>  **没有 Null Model，TDA 就只是 Architecture Proposal。**
+>
 
 "Null"不是空集（∅），而是**撤离（Evacuation）**：
 - 系统性地剥离所有**后天领域知识**（a posteriori knowledge）：领域语料、文化经验、价值偏好、自主目的
@@ -141,7 +145,7 @@ LLM拥有完整的语言理解和生成能力，它的"自由"在计算层面不
 6. **Null Model (Judgment & Execution)**：评估LLM蓝图的形式约束符合性（对照元事实库规则），选择最优允许路径，强制执行原子性，提供回滚保证
 7. **Solution**：物理世界执行结果
 
----
+#
 
 ## 四、三层架构防火墙与知识分层
 
@@ -186,7 +190,7 @@ LLM和外部数据库在此运行。它们的唯一权限：
 
 **核心洞察**：空模型的"无知识"是指**无后天领域知识**（a posteriori knowledge），而非**无先验计算能力**（a priori computational capacity）。因果骨架、约束满足、路径搜索属于先验计算能力，不是"知识"。元事实库提供的是**边界条件**（什么允许提取），不是空模型"学习"的内容。
 
----
+#
 
 ## 五、DuMate案例：反事实分析
 
@@ -206,7 +210,7 @@ LLM和外部数据库在此运行。它们的唯一权限：
 5. **L2**执行Copy(src, dst)，验证校验和同一性（MD5_src = MD5_dst），因果日志记录，继续执行。
 6. **如果LLM超时（Bad Gateway）**，L2不会崩溃。它优雅降级：标签默认回退到文件扩展名，复制继续执行，异常记录供人类审查。
 
----
+#
 
 ## 六、形式保证
 
@@ -218,7 +222,7 @@ NMP架构提供全模型范式无法提供的三项结构保证：
 
 3. **Graceful Degradation（优雅降级）**：如果L3失败（超时、幻觉），L2回退到确定性默认值，保证系统始终处于安全状态。
 
----
+#
 
 ## 七、AGI启示
 
@@ -236,14 +240,15 @@ More Data → More Knowledge → More Autonomy
 Harder Constraints → Reliable Judgment → Safe Execution
 ```
 
----
+#
 
 ## 八、核心论断
 
 > "The DuMate failure is not an anecdote; it is a paradigm indicator. LLM agents will continue to collapse in physical environments until the industry recognizes that generation without constraint is hallucination, and execution without judgment is destruction."
-
+>
 > "The Null Model Paradigm does not reject LLMs; it provides them with a structured examination hall. The LLM is not caged; it is given a clear proposition and verified facts, within which it can reason freely. The Null Model is not merely a cage; it is the examiner that sets the proposition, verifies the reasoning, and enforces the final verdict."
-
+>
 > "Intelligence is not the accumulation of knowledge; it is the discipline to know when not to act—and the hard shell that enforces that discipline."
-
-
+>
+>                           
+#

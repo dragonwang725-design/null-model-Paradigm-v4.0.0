@@ -69,7 +69,7 @@ class MetaFact:
 
 class PrivacyVault:
     """
-    隐私资料库：人类元规则层
+    元事实库：人类元规则层
 
     核心原则：
     1. 规则是硬约束，空模型必须遵守
@@ -87,7 +87,7 @@ class PrivacyVault:
         self._load()
 
     def _load(self):
-        """从JSON文件加载隐私资料库"""
+        """从JSON文件加载元事实资料库"""
         if not self.vault_path.exists():
             self._init_default()
             return
