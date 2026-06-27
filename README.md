@@ -1,16 +1,19 @@
-# Null Model Paradigm（NMP）：可靠 AI 可执行的核心范式
+# 空模型范式（NMP）：可靠 AI 可执行的核心范式
+Null Model Paradigm（NMP）：Reliable AI Executable Core Paradigm
 
-> **基于三层双视角辩证（TDA）架构设计**
 
----
+###  —— 基于三层双视角辩证（TDA）架构设计
 
-## 一句话
-
-**Null Model Paradigm 是可靠 AI 系统的可执行核心。**
+Design based on a three-layer dual-viewpoint dialectical (TDA) architecture
 
 ---
 
 ## 为什么？
+
+**Null Model Paradigm是可靠 AI 系统的可执行核心。** 
+
+
+#
 
 ### 1. 为什么叫可执行？（Definition 1: Null Model）
 
@@ -32,31 +35,39 @@
 
 **空模型是"可执行"的**：它有通用的计算骨架（BFS、约束满足、路径选择），可以运行在任何领域，不需要重新训练。
 
----
+#
 
-### 2. 为什么是核心？（Definition 4: Null Model Paradigm）
+### 2. 为什么是核心？（Definition 2: Null Model Paradigm）
 
 **没有 Null Model，TDA 就只是 Architecture Proposal。**
 
 Null Model Paradigm 不是哲学概念，是**TDA 架构的可执行计算核心**。
 
 ```
-Null Model Paradigm（NMP）
-  ├── Null Model（空模型）—— 先验计算，提取事实
-  ├── Meta Fact（元事实）—— 使用者确认的事实
-  └── Case Base（判例库）—— 错误记录，越用越老练
+── TDA（三层双视角辩证架构）
+     └── Null Model Paradigm（NMP）
+                      ├── Null Model（空模型）—— 先验计算，提取事实
+                      ├── Meta Fact（元事实）—— 使用者确认的事实
+                      └── Case Base（判例库）—— 错误记录，越用越老练
 ```
 
 **为什么是核心？**
 
-- LLM 是棋手，会下棋但不懂现实
-- NMP 是棋谱记录员，只让 LLM 按事实说话
+—— 为什么大型语言模型应该是棋谱而不是棋手
+
+> **事实是判断的依据，而不是知识。所有的判断基于事实，而事实的全景是无限的，提取跟目的相关和相符的事实，就能让 LLM 有判断力。**
+>
+>**LLM 不是主体，外壳才是。**
+> AlphaGo/AlphaZero的搜索-评估引擎没有围棋文化、没有人类直觉、没有开局库——它只有通用的计算骨架（搜索、评估、选择）。人类棋谱只是候选来源，引擎决定哪一步真正执行。
+>
+> 这不是一个框架，而是将**目的-判断-知识**划分的架构规范。
+>
 - 没有 NMP，LLM 自由发挥， hallucination 不可避免
-- 有了 NMP，LLM 被约束在事实边界内，**零偏差、零幻觉**
+- NMP是轻量的、本地部署的约束优先的通用壳
 
----
+#
 
-### 3. 为什么需要元事实库？（Definition 2: Meta Fact Base）
+### 3. 为什么需要元事实库？（Definition 3: Meta Fact Base）
 
 > **对 AI 使用者来说，没有公共通用的事实，只有个体私域的事实。**
 
@@ -71,9 +82,9 @@ Null Model Paradigm（NMP）
 
 **关键**：元事实库不是"知识库"，是**使用者的事实主权寄存器**。
 
----
+#
 
-### 4. 为什么需要判例库？（Definition 3: Case Base）
+### 4. 为什么需要判例库？（Definition 4: Case Base）
 
 > **人类总试图保持正确，但不知道正确从哪里来？是从错误中来的。**
 
@@ -91,7 +102,7 @@ Null Model Paradigm（NMP）
 - 参数会过时，教训只会越积越锋利
 - 这是 NMP 的**护城河**：换个大模型容易，换三年判例库难
 
----
+#
 
 ### 5. 为什么需要 TDA？（Definition 5: TDA）
 
@@ -115,7 +126,7 @@ TDA（三层双视角辩证架构）是 NMP 的**架构展开**。
 
 **TDA 让矛盾 productive**：不是消除矛盾，是让矛盾可见、可管理、可追溯。
 
----
+#
 
 ### 6. 为什么能落地？
 
@@ -134,23 +145,24 @@ TDA（三层双视角辩证架构）是 NMP 的**架构展开**。
 **验证通过**：
 - [📋 逻辑一致性验证报告](docs/LOGIC_VERIFICATION_REPORT_V2.md)：98% 一致性，架构级偏差全部修正
 
----
 
 ## 核心公式 = 目录
 
 ```
-Null Model Paradigm（NMP）：可靠 AI 可执行的核心范式
-  ├── Definition 1: Null Model（空模型）
-  │     └── 先验计算结构，目的→事实类型映射
-  ├── Definition 2: Meta Fact Base（元事实库）
-  │     └── 使用者确认的、有时间刻度的静态事实集合
-  ├── Definition 3: Case Base（判例库）
-  │     └── 错误碰壁记录，否定性知识，驱动自学习
-  ├── Definition 4: Null Model Paradigm（空模型范式）
-  │     └── NMP = Null Model + Meta Fact + Case Base
+
   └── Definition 5: TDA（三层双视角辩证架构）
-        └── 让 LLM 与空模型的张力显性化、可管理、可追溯
+      ├             └── 让 LLM 与空模型的张力显性化、可管理、可追溯
+      ├──Null Model Paradigm（NMP）：可靠 AI 可执行的核心范式
+      ├── Definition 1: Null Model（空模型）
+      │     └── 先验计算结构，目的→事实类型映射
+      ├── Definition 2: Meta Fact Base（元事实库）
+      │     └── 使用者确认的、有时间刻度的静态事实集合
+      ├── Definition 3: Case Base（判例库）
+      │     └── 错误碰壁记录，否定性知识，驱动自学习
+      ├── Definition 4: Null Model Paradigm（空模型范式）
+            └── NMP = Null Model + Meta Fact + Case Base 
 ```
+#
 
 | 组件 | 文档 |
 |------|------|
@@ -161,7 +173,7 @@ Null Model Paradigm（NMP）：可靠 AI 可执行的核心范式
 | **交互协议** | [📓 云端-本地协议](docs/cloud_local_protocol.md) |
 | **逻辑验证** | [📋 验证报告](docs/LOGIC_VERIFICATION_REPORT_V2.md) |
 
----
+#
 
 ## 快速开始
 
@@ -171,8 +183,7 @@ git clone https://github.com/dragonwang725-design/llm-hallucination-constraint-s
 cd demo
 python run.py --purpose "检查系统状态"
 ```
-
----
+#
 
 ## 引用
 
