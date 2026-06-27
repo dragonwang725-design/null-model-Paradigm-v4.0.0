@@ -9,7 +9,7 @@ Design based on a three-layer dual-viewpoint dialectical (TDA) architecture
 ---
 
 
-## 为什么Null Model Paradigm是可靠 AI 系统的可执行核心？
+## 为什么 Null Model Paradigm是可靠 AI 系统的可执行核心？
 
 
 
@@ -28,6 +28,8 @@ Design based on a three-layer dual-viewpoint dialectical (TDA) architecture
 | **目的** | — | 等待人类输入；不产生自身目标 |
 
 **类比**：空模型就像**中央处理器（CPU）**。它拥有指令集（计算能力），但内存中的数据（领域知识）并非 CPU 的"组成部分"。CPU 从内存读取数据并进行操作，但作为底层架构，它本身并不**包含任何知识**。
+
+<img src="flow-chart/nmp.png" alt="图片替代文字" width="75%">
 
 **关键澄清**：空模型不会做出任何判断；它只会**计算是否匹配**。就像防火墙不会"理解"黑客，它只会匹配规则。
 
@@ -60,8 +62,12 @@ Null Model Paradigm 不是哲学概念，是**TDA 架构的可执行计算核心
 >
 > 这不是一个框架，而是将**目的-判断-知识**划分的架构规范。
 >
-- 没有 NMP，LLM 自由发挥， hallucination 不可避免
-- NMP是轻量的、本地部署的约束优先的通用壳
+- LLM是抛开事实讲逻辑、讲道理。
+- NMP以**事实**为判断依据
+- NMP是本地部署的、约束优先的、轻量的通用壳
+- NMP通过TDA实现可靠AI 可执行的核心范式，是系统架构(TDA)的灵魂
+
+ **空模型范式不仅仅是一种哲学范式，它也是TDA架构的可执行计算核心**。
 
 #
 
@@ -141,7 +147,7 @@ TDA（三层双视角辩证架构）是 NMP 的**架构展开**。
 - [📓 云端-本地交互协议](docs/cloud_local_protocol.md) nmp-2.0：事实主权、代表原则、静态快照、闭环反馈、无资格原则
 
 **验证通过**：
-- [📋 逻辑一致性验证报告](docs/LOGIC_VERIFICATION_REPORT_V2.md)：98% 一致性，架构级偏差全部修正
+- [📋 逻辑一致性验证报告](docs/LOGIC_VERIFICATION_REPORT.md) ：98% 一致性，架构级偏差全部修正
 
 
 ## 核心公式 = 目录
@@ -150,7 +156,7 @@ TDA（三层双视角辩证架构）是 NMP 的**架构展开**。
 
   └── Definition 5: TDA（三层双视角辩证架构）
        |             └── 让 LLM 与空模型的张力显性化、可管理、可追溯
-       └──Definition 4:Null Model Paradigm（NMP）：可靠 AI 可执行的核心范式
+       └──Definition 4:Null Model Paradigm（NMP）：可通过TDA实现可靠AI 可执行的核心范式
              ├── Definition 1: Null Model（空模型）
              │              └── 先验计算结构，目的→事实类型映射
              ├── Definition 2: Meta Fact Base（元事实库）
@@ -181,9 +187,20 @@ TDA（三层双视角辩证架构）是 NMP 的**架构展开**。
 | **Null Model** | 在本文"为什么叫可执行"节已阐述 |
 | **Meta Fact Base** | [📙 元事实库设计](docs/meta_fact_vault.md) |
 | **Case Base** | [📕 双相理论（判例库）](docs/dual-phase-theory.md) |
-| **TDA 架构** | [📐 架构文档](docs/architecture.md) |
+| **TDA 架构** | [📐 架构文档](docs/flow_chart.md) |
 | **交互协议** | [📓 云端-本地协议](docs/cloud_local_protocol.md) |
-| **逻辑验证** | [📋 验证报告](docs/LOGIC_VERIFICATION_REPORT_V2.md) |
+| **逻辑验证** | [📋 验证报告](docs/LOGIC_VERIFICATION_REPORT.md) |
+
+#
+
+| 理论、模型 | 文档 |
+|------|------|
+| **哲学原理** | [📕"受动-能动"辩证结构与认识论的操作化路径](docs/Philosophy_Inspiration.md)|
+| **工程理论**| [📙 大语言模型的结构性局限与人工智能的结构转向](docs/TDA-Theory.md) |
+| **工程理论**| [📙 A counterintuitive AGI architecture solution(英文版理论概述)](v3-Overviewl.md) |
+| **架构设计** | [📓 TDA 架构文档](docs/flow_chart.md) |
+| **实现方案** | [📐 TDA 架构文档](docs/architecture.md) |
+
 
 #
 
