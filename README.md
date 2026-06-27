@@ -199,7 +199,7 @@ TDA（三层双视角辩证架构）是 NMP 的**架构展开**。
 |------|------|
 | **哲学原理** | [📕"受动-能动"辩证结构与认识论的操作化路径](docs/Philosophy_Inspiration.md)|
 | **工程理论**| [📙 大语言模型的结构性局限与人工智能的结构转向](docs/TDA-Theory.md) |
-| **工程理论**| [📙 A counterintuitive AGI architecture solution(英文版理论概述)](v3-Overviewl.md) |
+| **工程理论**| [📙 A counterintuitive AI architecture solution(英文版理论概述)](v3-Overviewl.md) |
 | **架构设计** | [📓 TDA 架构文档](docs/flow_chart.md) |
 | **实现方案** | [📐 TDA 架构文档](docs/architecture.md) |
 
