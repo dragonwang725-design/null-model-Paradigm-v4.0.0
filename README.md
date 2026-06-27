@@ -206,12 +206,24 @@ TDA（三层双视角辩证架构）是 NMP 的**架构展开**。
 
 ## 快速开始
 
+1. [查看代码：](examples/nmp.py)
+
+2. [查看代码：](examples/crash_probe.py)
+
 ```bash
 # 最小 Demo
 git clone https://github.com/dragonwang725-design/llm-hallucination-constraint-shell.git
 cd demo
 python run.py --purpose "检查系统状态"
 ```
+**实验报告**：
+
+ - [元宝实验](examples/yuanbao.md)
+ 
+ - [豆包实验](examples/doubao.md)
+ 
+ - [实验报告](examples/Experiment_Report.md)
+
 #
 
 ## 引用
