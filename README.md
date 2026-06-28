@@ -1,4 +1,4 @@
-# 空模型范式（NMP）：可靠 AI 可执行的核心范式
+# 空模型范式（NMP）：可靠 AI系统 可执行的核心范式
 Null Model Paradigm（NMP）：Reliable AI Executable Core Paradigm
 
 
