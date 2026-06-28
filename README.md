@@ -8,7 +8,7 @@ Design based on a three-layer dual-viewpoint dialectical (TDA) architecture
 
 ---
 
-📋 **引用**：[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20964747.svg)](https://doi.org/10.5281/zenodo.20964746)
+📋 **引用**：[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20964746.svg)](https://doi.org/10.5281/zenodo.20964746)
 
 📌 版本:  v4.0.0
 
