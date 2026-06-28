@@ -7,7 +7,10 @@ Null Model Paradigm（NMP）：Reliable AI Executable Core Paradigm
 Design based on a three-layer dual-viewpoint dialectical (TDA) architecture
 
 ---
-📌版本:  v4.0.0
+
+📋 **引用**：[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20964747.svg)](https://doi.org/10.5281/zenodo.20964747)
+
+📌 版本:  v4.0.0
 
 #
 空模型范式（Null Model Paradigm, NMP）是一种面向可靠 AI 系统的可执行核心。它本身不推理、不生成、不判断，而是通过空模型程序、元事实库和判例库，为 LLM 提供确定性的事实基础。
@@ -231,6 +234,8 @@ python run.py --purpose "检查系统状态"
 
 ## 引用
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20715010.svg)](https://doi.org/10.5281/zenodo.20715010)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20715011.svg)](https://doi.org/10.5281/zenodo.20715011)
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20463703.svg)](https://doi.org/10.5281/zenodo.20463703)
 
 > **没有 Null Model，TDA 就只是 Architecture Proposal。**
