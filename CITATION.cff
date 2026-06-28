@@ -1,8 +1,8 @@
 cff-version: 1.2.0
 message: "如果你使用了本方案或代码，请按如下格式引用。"
 type: software
-title: "空模型范式（NMP）：可靠的AI可执行的核心范式——Null Model Paradigm（NMP）：Reliable AI Executable Core Paradigm"
-abstract: "constraint-shell（幻觉紧箍咒）通过空模型范式、元事实库与判例法体系，为大型语言模型提供外部约束壳层，有效压制幻觉与逻辑脑补发散。"
+title: "llm-hallucination-constraint-shell: 一个有效约束、压制 AI大模型（LLM）幻觉、逻辑脑补发散的小插件"
+abstract: "hallucination-constraint-shell（幻觉紧箍咒）通过空模型范式、元事实库与判例法体系，为大型语言模型提供外部约束壳层，有效压制幻觉与逻辑脑补发散。"
 authors:
   - family-names: "Wang"
     given-names: "Dragon"
@@ -17,7 +17,8 @@ license: Apache-2.0
 version: 1.0.0
 date-released: 2026-06-27
 # 注意：
-# doi: 10.5281/zenodo.20715010
+# doi: 10.5281/zenodo.20715011
+# doi: 10.5281/zenodo.20964746
 keywords:
   - "large language model"
   - "hallucination"
