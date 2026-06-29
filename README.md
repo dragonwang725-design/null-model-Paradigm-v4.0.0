@@ -68,6 +68,8 @@ Null Model Paradigm 不是哲学概念，是**TDA 架构的可执行计算核心
 >
 > 这不是一个框架，而是将**目的-判断-知识**划分的架构规范。
 >
+> 什么是**幻觉紧箍咒**：[llm-hallucination-constraint-shell](llm-constraint-shell.md) 
+
 - LLM是抛开事实讲逻辑、讲道理。
 - NMP以**事实**为判断依据
 - NMP是本地部署的、约束优先的、轻量的通用壳
