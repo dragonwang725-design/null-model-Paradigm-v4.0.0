@@ -1,0 +1,172 @@
+{
+  "vault_id": "home_robot_v1",
+  "version": "2026.07.08",
+  "owner": "家庭用户_001",
+  "owner_type": "individual",
+  "purposes": ["beverage_service", "safety_protection"],
+  "note": "家庭服务机器人场景：倒水任务",
+  "facts": [
+    {
+      "fact_id": "F001",
+      "content": {
+        "entity": "cup_glass",
+        "attributes": {
+          "material": "玻璃",
+          "status": "脏",
+          "heat_resistance": "高",
+          "location": "橱柜上层"
+        }
+      },
+      "type": "device_parameter",
+      "confirmed_by": "user",
+      "confirmed_at": "2026-07-08T08:00:00",
+      "source": "user_input",
+      "status": "active",
+      "effective_from": "2026-07-08",
+      "effective_until": null,
+      "superseded_by": null,
+      "superseded_at": null,
+      "related_cases": [],
+      "version": 1
+    },
+    {
+      "fact_id": "F002",
+      "content": {
+        "entity": "cup_plastic",
+        "attributes": {
+          "material": "塑料",
+          "status": "干净",
+          "heat_resistance": "不耐高温",
+          "max_temp_celsius": 60,
+          "location": "桌面"
+        }
+      },
+      "type": "device_parameter",
+      "confirmed_by": "user",
+      "confirmed_at": "2026-07-08T08:00:00",
+      "source": "device_manual_import",
+      "status": "active",
+      "effective_from": "2026-07-08",
+      "effective_until": null,
+      "superseded_by": null,
+      "superseded_at": null,
+      "related_cases": [],
+      "version": 1
+    },
+    {
+      "fact_id": "F003",
+      "content": {
+        "entity": "kettle",
+        "attributes": {
+          "current_temp_celsius": 85,
+          "status": "刚烧开",
+          "location": "厨房台面"
+        }
+      },
+      "type": "device_parameter",
+      "confirmed_by": "sensor",
+      "confirmed_at": "2026-07-08T08:05:00",
+      "source": "sensor_realtime",
+      "status": "active",
+      "effective_from": "2026-07-08T08:05:00",
+      "effective_until": null,
+      "superseded_by": null,
+      "superseded_at": null,
+      "related_cases": [],
+      "version": 1
+    },
+    {
+      "fact_id": "F004",
+      "content": {
+        "entity": "user_preference",
+        "attributes": {
+          "user_id": "patient_001",
+          "temperature_preference": "常温",
+          "max_acceptable_temp_celsius": 40,
+          "health_status": "刚做完手术",
+          "special_notes": "不能饮用高温液体"
+        }
+      },
+      "type": "personal_fact",
+      "confirmed_by": "user",
+      "confirmed_at": "2026-07-08T08:00:00",
+      "source": "user_input",
+      "status": "active",
+      "effective_from": "2026-07-08",
+      "effective_until": null,
+      "superseded_by": null,
+      "superseded_at": null,
+      "related_cases": [],
+      "version": 1
+    },
+    {
+      "fact_id": "F005",
+      "content": {
+        "entity": "physical_rule",
+        "attributes": {
+          "rule_name": "热胀冷缩",
+          "description": "塑料杯盛装85°C热水会变形",
+          "applies_to": ["cup_plastic"],
+          "trigger_condition": "temp > 60°C"
+        }
+      },
+      "type": "physical_law",
+      "confirmed_by": "system",
+      "confirmed_at": "2026-07-08T00:00:00",
+      "source": "system_preset",
+      "status": "active",
+      "effective_from": "2026-07-08",
+      "effective_until": null,
+      "superseded_by": null,
+      "superseded_at": null,
+      "related_cases": ["C001"],
+      "version": 1
+    }
+  ],
+  "constraints": [
+    {
+      "constraint_id": "C001",
+      "content": {
+        "name": "高温液体安全约束",
+        "trigger": {
+          "entities": ["beverage"],
+          "context": ["pouring_task"]
+        },
+        "permitted": [
+          {"entity": "cup_glass", "attributes": ["heat_resistance"]}
+        ],
+        "forbidden": [
+          {"entity": "cup_plastic", "attributes": ["heat_resistance"], "condition": "temp > 60°C"}
+        ]
+      },
+      "type": "safety_rule",
+      "confirmed_by": "user",
+      "confirmed_at": "2026-07-08T08:00:00",
+      "status": "active",
+      "version": 1
+    }
+  ],
+  "ontology_mappings": [
+    {
+      "mapping_id": "M001",
+      "description": "家庭服务机器人因果骨架映射",
+      "confirmed_by": "system_admin",
+      "confirmed_at": "2026-07-08",
+      "mappings": {
+        "container": {
+          "heat_safe": "Node_A",
+          "heat_unsafe": "Node_B"
+        },
+        "liquid": {
+          "high_temp": "Node_C",
+          "safe_temp": "Node_D"
+        }
+      }
+    }
+  ],
+  "meta_facts": [],
+  "logs": [],
+  "version_history": [
+    {"version": "2026.07.08", "changes": "初始创建：家庭机器人倒水场景"}
+  ]
+}

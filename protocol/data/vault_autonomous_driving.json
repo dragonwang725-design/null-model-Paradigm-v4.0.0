@@ -1,0 +1,199 @@
+{
+  "vault_id": "autonomous_driving_v1",
+  "version": "2026.07.08",
+  "owner": "vehicle_fleet_001",
+  "owner_type": "enterprise",
+  "purposes": ["obstacle_avoidance", "speed_control", "aeb_decision"],
+  "note": "自动驾驶场景：前方障碍物识别与决策",
+  "facts": [
+    {
+      "fact_id": "F101",
+      "content": {
+        "entity": "obstacle_plastic_bag",
+        "attributes": {
+          "material": "塑料",
+          "shape": "片状",
+          "mass_kg": 0.001,
+          "rigidity": "柔性",
+          "wind_sensitive": true,
+          "collision_risk": "极低"
+        }
+      },
+      "type": "environment_fact",
+      "confirmed_by": "perception_system",
+      "confirmed_at": "2026-07-08T14:30:00",
+      "source": "sensor_fusion",
+      "status": "active",
+      "effective_from": "2026-07-08T14:30:00",
+      "effective_until": null,
+      "superseded_by": null,
+      "superseded_at": null,
+      "related_cases": ["C201"],
+      "version": 1
+    },
+    {
+      "fact_id": "F102",
+      "content": {
+        "entity": "obstacle_cardboard_box",
+        "attributes": {
+          "material": "纸板",
+          "shape": "立方体",
+          "mass_kg": 2.5,
+          "rigidity": "刚体",
+          "wind_sensitive": false,
+          "collision_risk": "中",
+          "estimated_damage": "保险杠凹陷"
+        }
+      },
+      "type": "environment_fact",
+      "confirmed_by": "perception_system",
+      "confirmed_at": "2026-07-08T14:30:00",
+      "source": "sensor_fusion",
+      "status": "active",
+      "effective_from": "2026-07-08T14:30:00",
+      "effective_until": null,
+      "superseded_by": null,
+      "superseded_at": null,
+      "related_cases": ["C202"],
+      "version": 1
+    },
+    {
+      "fact_id": "F103",
+      "content": {
+        "entity": "road_condition",
+        "attributes": {
+          "segment_id": "K125",
+          "weather": "雨",
+          "friction_coefficient": 0.65,
+          "max_safe_speed_kmh": 48,
+          "constraint_id": "SPEED-K125-RAIN-001"
+        }
+      },
+      "type": "environment_fact",
+      "confirmed_by": "sensor",
+      "confirmed_at": "2026-07-08T14:30:00",
+      "source": "sensor_realtime",
+      "status": "active",
+      "effective_from": "2026-07-08T14:30:00",
+      "effective_until": null,
+      "superseded_by": null,
+      "superseded_at": null,
+      "related_cases": ["C203"],
+      "version": 1
+    },
+    {
+      "fact_id": "F104",
+      "content": {
+        "entity": "vehicle_status",
+        "attributes": {
+          "current_speed_kmh": 55,
+          "tire_type": "标准四季胎",
+          "aeb_enabled": true,
+          "lane_position": "中间车道"
+        }
+      },
+      "type": "device_parameter",
+      "confirmed_by": "vehicle_can_bus",
+      "confirmed_at": "2026-07-08T14:30:00",
+      "source": "can_bus_realtime",
+      "status": "active",
+      "effective_from": "2026-07-08T14:30:00",
+      "effective_until": null,
+      "superseded_by": null,
+      "superseded_at": null,
+      "related_cases": [],
+      "version": 1
+    },
+    {
+      "fact_id": "F105",
+      "content": {
+        "entity": "physical_rule",
+        "attributes": {
+          "rule_name": "柔性物体不触发AEB",
+          "description": "质量趋零、柔性片状的障碍物不应触发紧急制动",
+          "applies_to": ["obstacle_plastic_bag"],
+          "action": "light_throttle_reduction"
+        }
+      },
+      "type": "physical_law",
+      "confirmed_by": "system",
+      "confirmed_at": "2026-07-08T00:00:00",
+      "source": "system_preset",
+      "status": "active",
+      "effective_from": "2026-07-08",
+      "effective_until": null,
+      "superseded_by": null,
+      "superseded_at": null,
+      "related_cases": ["C201"],
+      "version": 1
+    }
+  ],
+  "constraints": [
+    {
+      "constraint_id": "C201",
+      "content": {
+        "name": "AEB触发约束",
+        "trigger": {
+          "entities": ["obstacle"],
+          "context": ["highway_driving"]
+        },
+        "permitted": [
+          {"entity": "obstacle", "attributes": ["rigidity"], "condition": "rigidity == '刚体' AND mass_kg > 1.0"}
+        ],
+        "forbidden": [
+          {"entity": "obstacle", "attributes": ["rigidity"], "condition": "rigidity == '柔性' OR mass_kg < 0.1"}
+        ]
+      },
+      "type": "safety_rule",
+      "confirmed_by": "fleet_safety_officer",
+      "confirmed_at": "2026-07-08T00:00:00",
+      "status": "active",
+      "version": 1
+    },
+    {
+      "constraint_id": "C202",
+      "content": {
+        "name": "弯道雨天速度约束",
+        "trigger": {
+          "entities": ["road_condition"],
+          "context": ["cornering"]
+        },
+        "permitted": [
+          {"entity": "vehicle", "attributes": ["speed"], "condition": "speed <= max_safe_speed_kmh"}
+        ],
+        "forbidden": [
+          {"entity": "vehicle", "attributes": ["speed"], "condition": "speed > max_safe_speed_kmh"}
+        ]
+      },
+      "type": "safety_rule",
+      "confirmed_by": "fleet_safety_officer",
+      "confirmed_at": "2026-07-08T00:00:00",
+      "status": "active",
+      "version": 1
+    }
+  ],
+  "ontology_mappings": [
+    {
+      "mapping_id": "M101",
+      "description": "自动驾驶因果骨架映射",
+      "confirmed_by": "system_admin",
+      "confirmed_at": "2026-07-08",
+      "mappings": {
+        "obstacle": {
+          "rigid": "Node_A",
+          "flexible": "Node_B"
+        },
+        "vehicle_action": {
+          "hard_brake": "Node_C",
+          "soft_brake": "Node_D",
+          "maintain": "Node_E"
+        }
+      }
+    }
+  ],
+  "meta_facts": [],
+  "logs": [],
+  "version_history": [
+    {"version": "2026.07.08", "changes": "初始创建：自动驾驶障碍物场景"}
+  ]
+}
