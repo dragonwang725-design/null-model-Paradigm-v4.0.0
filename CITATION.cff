@@ -1,8 +1,8 @@
 cff-version: 1.2.0
 message: "如果你使用了本方案或代码，请按如下格式引用。"
 type: software
-title: "llm-hallucination-constraint-shell: 一个有效约束、压制 AI大模型（LLM）幻觉、逻辑脑补发散的小插件"
-abstract: "hallucination-constraint-shell（幻觉紧箍咒）通过空模型范式、元事实库与判例法体系，为大型语言模型提供外部约束壳层，有效压制幻觉与逻辑脑补发散。"
+title: "Null Model Paradigm（NMP）:可靠 AI系统 可执行的核心范式"
+abstract: "Null Model Paradigm（NMP）通过空模型范式、元事实库与判例法体系，为大型语言模型提供外部约束壳层，有效压制幻觉与逻辑脑补发散。基于三层双视角辩证（TDA）架构设计"
 authors:
   - family-names: "Wang"
     given-names: "Dragon"
@@ -12,7 +12,7 @@ authors:
     given-names: "Lowes"
     alias: "loweswang"
     email: "250734099@qq.com"
-repository-code: "https://github.com/dragonwang725-design/null-model-Paradigm-v4.0.0"
+repository-code: "https://github.com/dragonwang725-design/null-model-Paradigm-v5.0.0"
 license: Apache-2.0
 version: 1.0.0
 date-released: 2026-06-27
@@ -28,3 +28,5 @@ keywords:
   - "constraint-priority"
   - "AI safety"
   - "LLM hallucination mitigation"
+  - "三层双视角辩证（TDA）架构"
+  - "Null Model Paradigm（NMP）"
